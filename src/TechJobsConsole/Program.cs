@@ -60,16 +60,25 @@ namespace TechJobsConsole
 
                     List<Dictionary<string, string>> searchResults;
 
-                    // Fetch results
+                    //  TODO  - Fetch results
                     if (columnChoice.Equals("all"))
                     {
-                        
-                        PrintJobs(JobData.FindAll());
+                        searchResults = JobData.FindByValue (searchTerm);
+                        PrintJobs(searchResults);
+                        if (searchResults.Count == 0) 
+                        {
+                            Console.WriteLine(" search does not exist");
+                        }
                     }
                     else
                     {
                         searchResults = JobData.FindByColumnAndValue(columnChoice, searchTerm);
                         PrintJobs(searchResults);
+
+                        if (searchResults.Count == 0)
+                        {
+                            Console.WriteLine(" search does not exist");
+                        }
                     }
                 }
             }
@@ -116,7 +125,7 @@ namespace TechJobsConsole
 
             return choiceKeys[choiceIdx];
         }
-
+        // TODO 1 - Print jobs'list
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
             foreach (var row in someJobs)
