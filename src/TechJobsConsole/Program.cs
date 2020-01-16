@@ -130,14 +130,15 @@ namespace TechJobsConsole
         {
             foreach (var row in someJobs)
             {
+                Console.WriteLine("*****");
                 foreach (var keyvaluepair in row)
                 {
-                    Console.WriteLine("*****");
                     Console.WriteLine("{0}:{1}" , keyvaluepair.Key, keyvaluepair.Value);
-                    Console.WriteLine("*****");
+                   
                 }
 
             }
+            Console.WriteLine("******");
         }
     }
 }

@@ -37,7 +37,9 @@ namespace TechJobsConsole
             }
             return values;
         }
-
+        // TODO 2 -  load data, if not already loaded  - implement find by value - 
+        //           iterate through a dictionary list
+        // TODO 3 - make search case-insensitive
         public static List<Dictionary<string, string>> FindByColumnAndValue(string column, string value)
         {
             // load data, if not already loaded
@@ -59,9 +61,9 @@ namespace TechJobsConsole
         }
         public static List<Dictionary<string, string>> FindByValue(string value)
         {
-            // load data, if not already loaded
+            
             LoadData();
-
+           
             List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> row in AllJobs)
@@ -72,6 +74,7 @@ namespace TechJobsConsole
 
                     {
                         jobs.Add(row);
+                        break;
                     }
                 }
             }
